@@ -11,7 +11,7 @@ namespace Walterlv.WebApi.Rssman.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new string[] { "https://walterlv.com/feed.xml", "https://lindexi.gitee.io/lindexi/feed.xml" };
         }
 
         // GET: api/Rss/5
