@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using System.IO;
+using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Walterlv.Rssman.Services;
 
 namespace Walterlv.Rssman
 {
@@ -20,6 +11,16 @@ namespace Walterlv.Rssman
         public MainPage()
         {
             this.InitializeComponent();
+            Loaded += OnLoaded;
+        }
+
+        private async void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            var folder = Package.Current.InstalledLocation;
+            using (var stream = await folder.OpenStreamForReadAsync("sample-opml.xml"))
+            {
+                var opml = await Opml.ParseAsync(stream);
+            }
         }
     }
 }
