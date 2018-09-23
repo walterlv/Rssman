@@ -12,8 +12,6 @@ namespace Walterlv.Rssman.Models
             OnDeserializing(element);
         }
 
-        protected virtual void OnDeserializing(XElement element)
-        {
-        }
+        protected abstract void OnDeserializing(XElement element);
     }
 }
