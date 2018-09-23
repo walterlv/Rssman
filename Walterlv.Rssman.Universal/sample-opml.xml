@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>walterlv</title>
+  </head>
+  <body>
+    <outline title="Team" text="Team">
+      <outline text="walterlv" title="walterlv" type="rss" xmlUrl="https://walterlv.com/feed.xml" htmlUrl="https://walterlv.com/" />
+      <outline text="林德熙" title="林德熙" type="rss" xmlUrl="https://lindexi.gitee.io/lindexi/feed.xml" htmlUrl="https://lindexi.gitee.io/" />
+    </outline>
+
+    <outline title="Friends" text="Friends">
+      <outline text="未来代码研究所 - 暗影吉他手" title="未来代码研究所 - 暗影吉他手" type="rss" xmlUrl="http://blog.atelier39.org/feed"/>
+      <outline text="Bean.Hsiang 项斌 ML.NET" title="Bean.Hsiang 项斌 ML.NET" type="rss" xmlUrl="http://feed.cnblogs.com/blog/u/14902/rss"/>
+    </outline>
+
+    <outline title="Microsoft" text="Microsoft">
+      <outline text="Microsoft .NET Blog" title="Microsoft .NET Blog" type="rss" xmlUrl="https://blogs.msdn.microsoft.com/dotnet/feed/"/>
+      <outline text="Microsoft The Visual Studio Blog" title="Microsoft The Visual Studio Blog" type="rss" xmlUrl="https://blogs.msdn.microsoft.com/visualstudio/feed/"/>
+    </outline>
+  </body>
+</opml>
