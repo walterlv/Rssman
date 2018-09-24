@@ -20,6 +20,7 @@ namespace Walterlv.Rssman
             using (var stream = await folder.OpenStreamForReadAsync("sample-opml.xml"))
             {
                 var opml = await Opml.ParseAsync(stream);
+                // 使用此 OPML 文档
             }
         }
     }

@@ -11,13 +11,13 @@ namespace Walterlv.Rssman.Services
 {
     public class Opml
     {
-        public static async Task<List<RssOpml>> ParseAsync(Stream stream)
+        public static async Task<RssOpml> ParseAsync(Stream stream)
         {
             var document = await XDocument.LoadAsync(stream, LoadOptions.None, CancellationToken.None);
             var root = document.XPathSelectElement("opml");
             var opml = new RssOpml();
             opml.Deserialize(root);
-            return new List<RssOpml>();
+            return opml;
         }
     }
 }

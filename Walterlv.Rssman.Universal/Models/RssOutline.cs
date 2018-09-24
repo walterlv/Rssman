@@ -21,12 +21,6 @@ namespace Walterlv.Rssman.Models
             set => SetValue(ref _text, value);
         }
 
-        private string Title
-        {
-            get => _text;
-            set => SetValue(ref _text, value);
-        }
-
         public OutlineType Type
         {
             get => _type;
