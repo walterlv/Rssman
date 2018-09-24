@@ -13,7 +13,7 @@
             <ColumnDefinition Width="320" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListView>
+        <ListView x:Name="RssListView">
             <ListView.Header>
                 <TextBlock Foreground="White" Margin="12 8" FontSize="12"
                            Text="Microsoft Store" />

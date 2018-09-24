@@ -1,7 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections.ObjectModel;
+using System.IO;
 using Windows.ApplicationModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Walterlv.Rssman.Models;
 using Walterlv.Rssman.Services;
 
 namespace Walterlv.Rssman.Pages
@@ -10,7 +12,7 @@ namespace Walterlv.Rssman.Pages
     {
         public RssPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
             Loaded += OnLoaded;
         }
 
@@ -20,8 +22,15 @@ namespace Walterlv.Rssman.Pages
             using (var stream = await folder.OpenStreamForReadAsync("sample-opml.xml"))
             {
                 var opml = await Opml.ParseAsync(stream);
-                // 使用此 OPML 文档
+                var outlines = opml.GetOutlines();
+                RssList.Clear();
+                foreach (var outline in outlines)
+                {
+                    RssList.Add(outline);
+                }
             }
         }
+
+        private ObservableCollection<RssOutline> RssList { get; } = new ObservableCollection<RssOutline>();
     }
 }

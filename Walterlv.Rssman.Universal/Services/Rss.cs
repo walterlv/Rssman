@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -6,9 +7,10 @@ using Microsoft.Toolkit.Parsers.Rss;
 
 namespace Walterlv.Rssman.Services
 {
-    public class Rss
+    public static class Rss
     {
-        public async Task<IEnumerable<RssSchema>> FetchAsync(string feedUrl)
+        [Pure]
+        public static async Task<IEnumerable<RssSchema>> FetchAsync(string feedUrl)
         {
             string feed = null;
 
