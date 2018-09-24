@@ -5,6 +5,7 @@
     xmlns:local="using:Walterlv.Rssman.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Walterlv.Rssman.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -13,15 +14,31 @@
             <ColumnDefinition Width="320" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListView x:Name="RssListView">
+        <ListView x:Name="RssListView" ItemsSource="{x:Bind RssList}" RequestedTheme="Dark">
             <ListView.Header>
                 <TextBlock Foreground="White" Margin="12 8" FontSize="12"
-                           Text="Microsoft Store" />
+                           Text="Rss Sources - Whitman" />
             </ListView.Header>
             <ListView.Background>
                 <AcrylicBrush TintColor="#e76729" TintOpacity="0.75"
                               FallbackColor="#b75829" BackgroundSource="HostBackdrop" />
             </ListView.Background>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="-12 0" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="models:RssOutline">
+                    <Grid>
+                        <TextBlock Margin="24 12 4 12" VerticalAlignment="Center">
+                            <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Text}" />
+                            <LineBreak />
+                            <Run FontSize="12" Foreground="#A0FFFFFF" Text="{x:Bind XmlUrl}" />
+                        </TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Frame Grid.Column="1">
         </Frame>
