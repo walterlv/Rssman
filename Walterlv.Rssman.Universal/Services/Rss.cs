@@ -20,6 +20,7 @@ namespace Walterlv.Rssman.Services
                 }
                 catch
                 {
+                    // 这里暂不处理异常。
                 }
             }
 
