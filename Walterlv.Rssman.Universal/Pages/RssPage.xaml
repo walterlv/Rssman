@@ -14,32 +14,36 @@
             <ColumnDefinition Width="320" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListView x:Name="RssListView" ItemsSource="{x:Bind RssList}" RequestedTheme="Dark">
-            <ListView.Header>
-                <TextBlock Foreground="White" Margin="12 8" FontSize="12"
-                           Text="Rss Sources - Whitman" />
-            </ListView.Header>
-            <ListView.Background>
+        <Grid>
+            <Grid.Background>
                 <AcrylicBrush TintColor="#e76729" TintOpacity="0.75"
                               FallbackColor="#b75829" BackgroundSource="HostBackdrop" />
-            </ListView.Background>
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Margin" Value="-12 0" />
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.ItemTemplate>
-                <DataTemplate x:DataType="models:RssOutline">
-                    <Grid>
-                        <TextBlock Margin="24 12 4 12" VerticalAlignment="Center">
-                            <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Text}" />
-                            <LineBreak />
-                            <Run FontSize="12" Foreground="#A0FFFFFF" Text="{x:Bind XmlUrl}" />
-                        </TextBlock>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </Grid.Background>
+            <ListView x:Name="RssListView" Margin="0 32 0 0" RequestedTheme="Dark"
+                      ItemsSource="{x:Bind RssList}">
+                <ListView.Header>
+                    <AppBar Background="Transparent">
+                        <AppBarButton />
+                    </AppBar>
+                </ListView.Header>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="-12 0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:RssOutline">
+                        <Grid>
+                            <TextBlock Margin="24 12 4 12" VerticalAlignment="Center">
+                                <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Text}" />
+                                <LineBreak />
+                                <Run FontSize="12" Foreground="#A0FFFFFF" Text="{x:Bind XmlUrl}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
         <Frame Grid.Column="1">
         </Frame>
     </Grid>

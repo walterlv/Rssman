@@ -13,5 +13,7 @@
         <Frame x:Name="RootFrame" SourcePageType="pages:RssPage">
 
         </Frame>
+        <TextBlock Foreground="White" Margin="12 8" FontSize="12"
+                   Text="Rss Sources - Whitman" IsHitTestVisible="False" />
     </Grid>
 </Page>
