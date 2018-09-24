@@ -14,10 +14,11 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid>
-            <Grid.Background>
-                <AcrylicBrush TintColor="White" TintOpacity="0.75" BackgroundSource="HostBackdrop" />
-            </Grid.Background>
-            <Rectangle Fill="#0f436baf" />
+            <ListView>
+                <ListView.Background>
+                    <AcrylicBrush TintColor="#e76729" TintOpacity="0.75" BackgroundSource="HostBackdrop" />
+                </ListView.Background>
+            </ListView>
         </Grid>
         <Frame Grid.Column="1">
 
