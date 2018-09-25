@@ -14,6 +14,6 @@
 
         </Frame>
         <TextBlock Foreground="White" Margin="12 8" FontSize="12"
-                   Text="Rss Sources - Whitman" IsHitTestVisible="False" />
+                   Text="Rss Sources - Rssman" IsHitTestVisible="False" />
     </Grid>
 </Page>
