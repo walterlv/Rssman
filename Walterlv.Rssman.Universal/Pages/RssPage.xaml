@@ -22,8 +22,8 @@
             <ListView x:Name="RssListView" Margin="0 32 0 0" RequestedTheme="Dark"
                       ItemsSource="{x:Bind RssList}">
                 <ListView.Header>
-                    <AppBar Background="Transparent">
-                        <AppBarButton />
+                    <AppBar Background="#40000000" ClosedDisplayMode="Compact">
+                        <AppBarButton Icon="Add" Content="新增" />
                     </AppBar>
                 </ListView.Header>
                 <ListView.ItemContainerStyle>
