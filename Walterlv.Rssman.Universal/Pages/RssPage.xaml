@@ -20,9 +20,9 @@
                               FallbackColor="#b75829" BackgroundSource="HostBackdrop" />
             </Grid.Background>
             <ListView x:Name="RssListView" Margin="0 32 0 0" RequestedTheme="Dark"
-                      ItemsSource="{x:Bind RssList}">
+                      ItemsSource="{x:Bind RssList}" SelectionChanged="RssListView_SelectionChanged">
                 <ListView.Header>
-                    <CommandBar Background="#40000000" ClosedDisplayMode="Compact" DefaultLabelPosition="Collapsed">
+                    <CommandBar Background="#40000000" ClosedDisplayMode="Compact" DefaultLabelPosition="Right">
                         <AppBarButton Icon="Add" Label="添加" ToolTipService.ToolTip="添加一个 RSS 订阅" />
                         <AppBarButton Icon="Delete" Label="删除" Visibility="Collapsed" ToolTipService.ToolTip="删除选择的订阅" />
                         <AppBarButton Icon="Bullets" Label="编辑" ToolTipService.ToolTip="进入编辑状态" />

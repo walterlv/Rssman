@@ -32,5 +32,9 @@ namespace Walterlv.Rssman.Pages
         }
 
         private ObservableCollection<RssOutline> RssList { get; } = new ObservableCollection<RssOutline>();
+
+        private void RssListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+        }
     }
 }
