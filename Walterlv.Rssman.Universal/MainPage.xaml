@@ -10,7 +10,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Frame x:Name="RootFrame" SourcePageType="pages:RssPage">
+        <Frame x:Name="RootFrame" SourcePageType="pages:ReadingPage">
 
         </Frame>
         <TextBlock Foreground="White" Margin="12 8" FontSize="12"

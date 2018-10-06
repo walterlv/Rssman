@@ -5,10 +5,72 @@
     xmlns:local="using:Walterlv.Rssman.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Walterlv.Rssman.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" />
+            <ColumnDefinition Width="320" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.Background>
+                <AcrylicBrush TintColor="#e76729" TintOpacity="0.75"
+                              FallbackColor="#b75829" BackgroundSource="HostBackdrop" />
+            </Grid.Background>
+            <ListView x:Name="RssListView" Margin="0 32 0 0" RequestedTheme="Dark"
+                      ItemsSource="{x:Bind RssList}">
+                <ListView.Header>
+                    <CommandBar Background="#40000000" ClosedDisplayMode="Compact" DefaultLabelPosition="Right">
+                        <AppBarButton Icon="Bullets" Label="编辑" ToolTipService.ToolTip="编辑 RSS 列表" />
+                    </CommandBar>
+                </ListView.Header>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="-12 0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:RssOutline">
+                        <Grid>
+                            <TextBlock Margin="24 12 4 12" VerticalAlignment="Center">
+                                <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Text}" />
+                                <LineBreak />
+                                <Run FontSize="12" Foreground="#A0FFFFFF" Text="{x:Bind XmlUrl}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.Background>
+                <AcrylicBrush TintColor="#fffcfa" TintOpacity="0.75"
+                              FallbackColor="#cac6c4" BackgroundSource="HostBackdrop" />
+            </Grid.Background>
+            <ListView x:Name="ArticleListView" Margin="0 32 0 0" RequestedTheme="Dark"
+                      ItemsSource="{x:Bind ArticleList}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="-12 0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:RssOutline">
+                        <Grid>
+                            <TextBlock Margin="24 12 4 12" VerticalAlignment="Center">
+                                <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Text}" />
+                                <LineBreak />
+                                <Run FontSize="12" Foreground="#A0FFFFFF" Text="{x:Bind XmlUrl}" />
+                            </TextBlock>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+        <Frame Grid.Column="1">
+        </Frame>
     </Grid>
 </Page>
