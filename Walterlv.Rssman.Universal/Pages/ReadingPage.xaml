@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:Walterlv.Rssman.Models"
+    xmlns:rss="using:Microsoft.Toolkit.Parsers.Rss"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -21,7 +22,7 @@
                               FallbackColor="#b75829" BackgroundSource="HostBackdrop" />
             </Grid.Background>
             <ListView x:Name="RssListView" Margin="0 32 0 0" RequestedTheme="Dark"
-                      ItemsSource="{x:Bind RssList}">
+                      ItemsSource="{x:Bind RssList}" SelectionChanged="RssListView_SelectionChanged">
                 <ListView.Header>
                     <CommandBar Background="#40000000" ClosedDisplayMode="Compact" DefaultLabelPosition="Right">
                         <AppBarButton Icon="Bullets" Label="编辑" ToolTipService.ToolTip="编辑 RSS 列表" />
@@ -50,27 +51,29 @@
                 <AcrylicBrush TintColor="#fffcfa" TintOpacity="0.75"
                               FallbackColor="#cac6c4" BackgroundSource="HostBackdrop" />
             </Grid.Background>
-            <ListView x:Name="ArticleListView" Margin="0 32 0 0" RequestedTheme="Dark"
-                      ItemsSource="{x:Bind ArticleList}">
+            <ListView x:Name="ArticleListView" Margin="0 32 0 0"
+                      ItemsSource="{x:Bind ArticleList}" SelectionChanged="ArticleListView_SelectionChanged">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Margin" Value="-12 0" />
+                        <Setter Property="Height" Value="120" />
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="models:RssOutline">
+                    <DataTemplate x:DataType="rss:RssSchema">
                         <Grid>
-                            <TextBlock Margin="24 12 4 12" VerticalAlignment="Center">
-                                <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Text}" />
+                            <TextBlock Margin="12 8" VerticalAlignment="Center"
+                                       TextTrimming="WordEllipsis" TextWrapping="WrapWholeWords">
+                                <Run FontSize="16" FontWeight="Thin" Text="{x:Bind Title}" />
                                 <LineBreak />
-                                <Run FontSize="12" Foreground="#A0FFFFFF" Text="{x:Bind XmlUrl}" />
+                                <Run FontSize="12" Foreground="#80000000" Text="{x:Bind Summary}" />
                             </TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Frame Grid.Column="1">
-        </Frame>
+        <WebView x:Name="WebView" Grid.Column="2">
+        </WebView>
     </Grid>
 </Page>
